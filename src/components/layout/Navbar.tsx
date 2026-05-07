@@ -65,7 +65,7 @@ export function Navbar() {
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "border-b border-white/10 bg-primary-700/95 shadow-xl backdrop-blur-md"
-            : "bg-primary-700/60 backdrop-blur-sm"
+            : "bg-primary-700/90 backdrop-blur-sm"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4 md:px-8">
@@ -128,9 +128,10 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-0 z-40 bg-primary-700/98 pt-20 backdrop-blur-xl transition-all duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 pt-20 transition-all duration-300 lg:hidden ${
           mobileOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
+        style={{ backgroundColor: "rgba(20, 46, 32, 0.99)" }}
       >
         <div className="flex flex-col items-center gap-1 p-6">
           {navLinks.map((link) => {
