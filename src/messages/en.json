@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "title": "MGS Industrial | Integrated Industrial Services",
+    "description": "MGS Industrial - Leading provider of industrial services, metal fabrication, petroleum pipes, and industrial maintenance in Egypt since 2004"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "machinery": "Machinery",
+    "clients": "Clients",
+    "contact": "Contact",
+    "getQuote": "Get a Quote"
+  },
+  "hero": {
+    "badge": "Since 2004 · Industrial Excellence",
+    "title": "Industrial Solutions",
+    "titleHighlight": "World-Class Standards",
+    "subtitle": "MGS Industrial - Your trusted partner in integrated industrial services, metal fabrication, petroleum pipes, and industrial maintenance with the highest quality and safety standards",
+    "cta": "Contact Us",
+    "explore": "Explore Services",
+    "stats": {
+      "years": "Years Experience",
+      "projects": "Projects Completed",
+      "clients": "Industrial Clients",
+      "team": "Specialized Engineers"
+    }
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "MGS Industrial",
+    "titleHighlight": "Integrated Industrial Services",
+    "description": "Founded in 2004, MGS Industrial is a leading Egyptian company in industrial services. We provide integrated solutions in metal fabrication, industrial equipment maintenance, petroleum pipes, and infrastructure services for major factories and industrial facilities.",
+    "mission": {
+      "title": "Our Mission",
+      "text": "Delivering distinguished industrial services that meet the highest quality and safety standards, while committed to continuous innovation and developing national competencies."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "To be the leading industrial partner in Egypt and the region, known for technical excellence, reliability, and commitment to the highest safety and sustainability standards."
+    },
+    "timeline": {
+      "title": "Journey of Success",
+      "2004": "Company founded and operations commenced",
+      "2008": "Expanded into metal fabrication and petroleum pipes",
+      "2012": "Strategic partnerships with major global companies",
+      "2016": "Launched integrated industrial maintenance services",
+      "2020": "Digital transformation and technical capabilities upgrade",
+      "2024": "Market leadership in Egyptian industrial services"
+    }
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Comprehensive Industrial",
+    "titleHighlight": "Solutions & Services",
+    "subtitle": "We offer a wide range of specialized industrial services with the highest quality and efficiency standards",
+    "learnMore": "Learn More",
+    "items": {
+      "fabrication": {
+        "title": "Metal Fabrication",
+        "description": "Advanced metal fabrication using cutting-edge technologies and equipment for high-quality structural and component production"
+      },
+      "cnc": {
+        "title": "CNC Machining",
+        "description": "Precision machining services using advanced CNC machines for producing industrial parts and components with extreme accuracy"
+      },
+      "welding": {
+        "title": "Welding & Cutting",
+        "description": "Professional welding and cutting services with multiple techniques including TIG, MIG, plasma, and laser cutting"
+      },
+      "pipes": {
+        "title": "Petroleum Pipe Manufacturing",
+        "description": "Manufacturing and supply of petroleum and gas pipes to international specifications with comprehensive quality assurance"
+      },
+      "pumps": {
+        "title": "Pump Maintenance",
+        "description": "Maintenance and repair of all types of industrial pumps with 24/7 emergency services"
+      },
+      "valves": {
+        "title": "Valve Repair",
+        "description": "Industrial valve repair and maintenance of all types and sizes with pressure and leak testing"
+      },
+      "compressors": {
+        "title": "Air Compressor Maintenance",
+        "description": "Comprehensive maintenance of all types of air and gas compressors with genuine parts and full warranty"
+      },
+      "factory": {
+        "title": "Factory Support Services",
+        "description": "Integrated factory operation support solutions including preventive, corrective, and emergency maintenance"
+      },
+      "installations": {
+        "title": "Industrial Installations",
+        "description": "Efficient installation and commissioning of industrial equipment and systems to the highest safety standards"
+      },
+      "infrastructure": {
+        "title": "Infrastructure Solutions",
+        "description": "Design and execution of industrial infrastructure projects including electrical, mechanical, and plumbing systems"
+      }
+    }
+  },
+  "machinery": {
+    "badge": "Machinery & Equipment",
+    "title": "Latest Equipment",
+    "titleHighlight": "& Industrial Technologies",
+    "subtitle": "We own a comprehensive fleet of advanced industrial equipment ensuring the highest levels of quality and efficiency"
+  },
+  "clients": {
+    "badge": "Our Clients & Partners",
+    "title": "Trusted by Leading",
+    "titleHighlight": "Industrial Companies",
+    "subtitle": "We are proud of the trust placed in us by the largest industrial and global companies in Egypt and the region"
+  },
+  "whyUs": {
+    "badge": "Why Choose Us",
+    "title": "Excellence in Every",
+    "titleHighlight": "Detail",
+    "items": {
+      "quality": {
+        "title": "Quality Commitment",
+        "description": "We adhere to the highest international quality standards in all our services and products"
+      },
+      "safety": {
+        "title": "Safety Priority",
+        "description": "Occupational safety is our top priority in every project we undertake"
+      },
+      "innovation": {
+        "title": "Innovation Driven",
+        "description": "We continuously invest in the latest technologies and innovative solutions"
+      },
+      "integrity": {
+        "title": "Ethical Integrity",
+        "description": "We build relationships on transparency, integrity, and ethical commitment"
+      },
+      "sustainability": {
+        "title": "Sustainability",
+        "description": "Committed to sustainable practices and environmental responsibility"
+      },
+      "speed": {
+        "title": "Fast Execution",
+        "description": "We deliver on time with rapid solutions without compromising quality"
+      },
+      "team": {
+        "title": "Expert Team",
+        "description": "A team of highly experienced and skilled engineers and technicians"
+      }
+    }
+  },
+  "stats": {
+    "badge": "Our Achievements",
+    "title": "Numbers That",
+    "titleHighlight": "Speak for Themselves",
+    "years": "Years Experience",
+    "projects": "Projects Completed",
+    "partners": "Industrial Partners",
+    "engineers": "Specialized Engineers"
+  },
+  "sustainability": {
+    "badge": "Sustainability & Responsibility",
+    "title": "Our Commitment to a",
+    "titleHighlight": "Sustainable Future",
+    "subtitle": "We believe true success is achieved through commitment to environmental and social responsibility",
+    "items": {
+      "environment": {
+        "title": "Environmental Responsibility",
+        "description": "Implementing best environmental practices and reducing carbon footprint across all operations"
+      },
+      "safety": {
+        "title": "Safety Standards",
+        "description": "Adhering to the highest occupational safety standards to protect workers and community"
+      },
+      "improvement": {
+        "title": "Continuous Improvement",
+        "description": "Constant pursuit of process development and performance optimization"
+      },
+      "community": {
+        "title": "Community Contribution",
+        "description": "Active participation in local community development and national workforce building"
+      },
+      "diversity": {
+        "title": "Diversity & Equality",
+        "description": "An inclusive work environment that embraces diversity and equal opportunity"
+      }
+    }
+  },
+  "team": {
+    "badge": "Our Team",
+    "title": "Human Capital",
+    "titleHighlight": "Our True Wealth",
+    "subtitle": "A distinguished team of specialized engineers and technicians who represent the backbone of our success",
+    "gm": "General Manager",
+    "gmName": "Eng. Mohamed Qutb",
+    "gmMessage": "At MGS Industrial, we believe excellence is not a destination but a continuous journey. We are committed to delivering the highest levels of quality and innovation to our clients."
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Start Your Industrial",
+    "titleHighlight": "Project With Us",
+    "subtitle": "Our team is ready to provide consultation and technical support for your industrial projects",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "service": "Required Service",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "selectService": "Select a Service"
+    },
+    "info": {
+      "phone": "+20 100 174 3289",
+      "email": "info@mgsindustrial.com",
+      "address": "Egypt",
+      "whatsapp": "Chat on WhatsApp"
+    }
+  },
+  "footer": {
+    "description": "MGS Industrial - Your trusted partner in integrated industrial services since 2004. We deliver comprehensive industrial solutions with the highest quality and safety standards.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contactUs": "Contact Us",
+    "rights": "All Rights Reserved",
+    "company": "MGS Industrial"
+  }
+}
