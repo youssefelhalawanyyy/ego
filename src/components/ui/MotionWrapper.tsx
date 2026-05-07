@@ -1,36 +1,8 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import { type ReactNode, useRef, useState, useEffect } from "react";
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const fadeIn: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
-
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1 },
-};
-
-const slideInLeft: Variants = {
-  hidden: { opacity: 0, x: -40 },
-  visible: { opacity: 1, x: 0 },
-};
-
-const slideInRight: Variants = {
-  hidden: { opacity: 0, x: 40 },
-  visible: { opacity: 1, x: 0 },
-};
-
-const variantsMap = { fadeUp, fadeIn, scaleIn, slideInLeft, slideInRight };
-
-function useScrollReveal() {
+function useScrollReveal(threshold = 0.05) {
   const ref = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
 
@@ -48,18 +20,19 @@ function useScrollReveal() {
           observer.disconnect();
         }
       },
-      { threshold: 0.01, rootMargin: "50px" }
+      { threshold, rootMargin: "80px" }
     );
 
     observer.observe(el);
 
-    const fallback = setTimeout(() => setRevealed(true), 800);
+    // Safety fallback — never leave content hidden forever
+    const fallback = setTimeout(() => setRevealed(true), 3000);
 
     return () => {
       observer.disconnect();
       clearTimeout(fallback);
     };
-  }, []);
+  }, [threshold]);
 
   return { ref, revealed };
 }
@@ -68,35 +41,39 @@ export function MotionDiv({
   children,
   variant = "fadeUp",
   delay = 0,
-  duration = 0.6,
   className,
 }: {
   children: ReactNode;
-  variant?: keyof typeof variantsMap;
+  variant?: "fadeUp" | "fadeIn" | "slideLeft" | "slideRight" | "scaleIn";
   delay?: number;
   duration?: number;
   className?: string;
 }) {
   const { ref, revealed } = useScrollReveal();
 
+  const variantClass = {
+    fadeUp: "scroll-fade-up",
+    fadeIn: "scroll-fade-in",
+    slideLeft: "scroll-slide-left",
+    slideRight: "scroll-slide-right",
+    scaleIn: "scroll-scale-in",
+  }[variant];
+
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial="hidden"
-      animate={revealed ? "visible" : "hidden"}
-      transition={{ duration, delay, ease: "easeOut" }}
-      variants={variantsMap[variant]}
-      className={className}
+      className={`${variantClass} ${revealed ? "scroll-revealed" : ""} ${className || ""}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
 export function StaggerContainer({
   children,
   className,
-  staggerDelay = 0.1,
+  staggerDelay = 0.08,
 }: {
   children: ReactNode;
   className?: string;
@@ -105,15 +82,13 @@ export function StaggerContainer({
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial="hidden"
-      animate={revealed ? "visible" : "hidden"}
-      transition={{ staggerChildren: staggerDelay }}
-      className={className}
+      className={`stagger-container ${revealed ? "scroll-revealed" : ""} ${className || ""}`}
+      style={{ "--stagger-delay": `${staggerDelay}s` } as React.CSSProperties}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -125,12 +100,8 @@ export function StaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div
-      variants={fadeUp}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={className}
-    >
+    <div className={`stagger-item ${className || ""}`}>
       {children}
-    </motion.div>
+    </div>
   );
 }

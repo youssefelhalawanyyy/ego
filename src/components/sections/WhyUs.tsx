@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import {
   Award,
   ShieldCheck,
@@ -62,10 +61,8 @@ export function WhyUs() {
         >
           {items.map(({ key, icon: Icon, num }, i) => (
             <StaggerItem key={key}>
-              <motion.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className={`group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.04] p-7 backdrop-blur-sm transition-colors hover:border-gold-400/30 hover:bg-white/[0.08] ${
+              <div
+                className={`group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-gold-400/30 hover:bg-white/[0.08] ${
                   i === 0 ? "sm:col-span-2 lg:col-span-1 xl:col-span-2" : ""
                 }`}
               >
@@ -86,7 +83,7 @@ export function WhyUs() {
                 </div>
 
                 <div className="absolute -bottom-1 -start-1 h-24 w-24 rounded-full bg-gold-400/0 blur-2xl transition-all group-hover:bg-gold-400/5" />
-              </motion.div>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>

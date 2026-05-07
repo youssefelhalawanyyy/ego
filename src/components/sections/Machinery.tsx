@@ -1,10 +1,12 @@
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
-import { motion } from "framer-motion";
+import { useState, useCallback } from "react";
 import Image from "next/image";
+import { Expand } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggerContainer, StaggerItem } from "@/components/ui/MotionWrapper";
+import { Lightbox } from "@/components/ui/Lightbox";
 
 const machineryImages = [
   {
@@ -37,6 +39,25 @@ const machineryImages = [
 export function Machinery() {
   const t = useTranslations("machinery");
   const locale = useLocale();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const lightboxImages = machineryImages.map((img) => ({
+    src: img.src,
+    alt: locale === "ar" ? img.labelAr : img.labelEn,
+  }));
+
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevImage = useCallback(() => {
+    setLightboxIndex((prev) =>
+      prev !== null ? (prev - 1 + machineryImages.length) % machineryImages.length : null
+    );
+  }, []);
+  const nextImage = useCallback(() => {
+    setLightboxIndex((prev) =>
+      prev !== null ? (prev + 1) % machineryImages.length : null
+    );
+  }, []);
 
   return (
     <section id="machinery" className="section-padding bg-white relative overflow-hidden">
@@ -62,9 +83,9 @@ export function Machinery() {
         <StaggerContainer staggerDelay={0.1}>
           {/* Featured large image */}
           <StaggerItem>
-            <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="group relative mb-4 h-[220px] overflow-hidden rounded-2xl bg-gray-100 sm:mb-6 sm:h-[320px] sm:rounded-3xl md:h-[420px]"
+            <div
+              onClick={() => openLightbox(0)}
+              className="group relative mb-4 h-[220px] cursor-pointer overflow-hidden rounded-2xl bg-gray-100 transition-transform duration-300 hover:scale-[1.01] sm:mb-6 sm:h-[320px] sm:rounded-3xl md:h-[420px]"
             >
               <Image
                 src={machineryImages[0].src}
@@ -74,23 +95,25 @@ export function Machinery() {
                 sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-700/70 via-transparent to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8">
                 <span className="inline-flex items-center gap-2 rounded-full bg-gold-400/90 px-4 py-1.5 text-sm font-bold text-primary-700">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary-700" />
                   {locale === "ar" ? machineryImages[0].labelAr : machineryImages[0].labelEn}
                 </span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm opacity-0 transition-opacity group-hover:opacity-100">
+                  <Expand className="h-5 w-5" />
+                </span>
               </div>
-            </motion.div>
+            </div>
           </StaggerItem>
 
           {/* Grid of remaining images */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 md:gap-6">
             {machineryImages.slice(1).map((item, i) => (
               <StaggerItem key={i}>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group relative h-[160px] overflow-hidden rounded-xl bg-gray-100 sm:h-[200px] sm:rounded-2xl md:h-[260px]"
+                <div
+                  onClick={() => openLightbox(i + 1)}
+                  className="group relative h-[160px] cursor-pointer overflow-hidden rounded-xl bg-gray-100 transition-all duration-300 hover:-translate-y-1.5 sm:h-[200px] sm:rounded-2xl md:h-[260px]"
                 >
                   <Image
                     src={item.src}
@@ -106,14 +129,24 @@ export function Machinery() {
                     </span>
                   </div>
                   <div className="absolute end-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
-                    <div className="h-2 w-2 rounded-full bg-gold-400 shadow-lg shadow-gold-400/50" />
+                    <Expand className="h-3.5 w-3.5 text-white" />
                   </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </div>
         </StaggerContainer>
       </div>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={lightboxImages}
+          currentIndex={lightboxIndex}
+          onClose={closeLightbox}
+          onPrev={prevImage}
+          onNext={nextImage}
+        />
+      )}
     </section>
   );
 }

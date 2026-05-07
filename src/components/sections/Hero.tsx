@@ -1,13 +1,27 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { ArrowDown, Wrench, Cog, Factory } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { ArrowDown, Download } from "lucide-react";
 import { Counter } from "@/components/ui/Counter";
 import Image from "next/image";
+import { useEffect, useState, useCallback } from "react";
 
 export function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale();
+  const [scrollY, setScrollY] = useState(0);
+  const [typeDone, setTypeDone] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setTypeDone(true), 2200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const stats = [
     { value: 19, suffix: "+", label: t("stats.years") },
@@ -21,14 +35,19 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen items-center overflow-hidden"
     >
-      <Image
-        src="/images/hero-bg.jpg"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
+      <div
+        className="absolute inset-0"
+        style={{ transform: `translateY(${scrollY * 0.35}px)`, willChange: "transform" }}
+      >
+        <Image
+          src="/images/hero-bg.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover scale-110"
+          sizes="100vw"
+        />
+      </div>
       <div className="absolute inset-0 bg-primary-700/80" />
       <div className="absolute inset-0">
         <div
@@ -40,93 +59,50 @@ export function Hero() {
         />
       </div>
 
-      {/* Floating decorative elements */}
-      <motion.div
-        animate={{ y: [-20, 20, -20] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute end-[10%] top-[20%] opacity-10 hidden md:block"
-      >
-        <Cog className="h-32 w-32 text-gold-400" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [20, -20, 20] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[25%] start-[5%] opacity-10 hidden md:block"
-      >
-        <Wrench className="h-24 w-24 text-gold-400" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [-15, 15, -15] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute end-[20%] top-[60%] opacity-10 hidden md:block"
-      >
-        <Factory className="h-28 w-28 text-gold-400" />
-      </motion.div>
-
       <div className="absolute start-0 top-0 h-96 w-96 rounded-full bg-gold-400/5 blur-3xl" />
       <div className="absolute bottom-0 end-0 h-96 w-96 rounded-full bg-gold-400/5 blur-3xl" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-32 md:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="animate-fade-in">
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-gold-400/10 px-5 py-2 text-sm font-medium text-gold-300">
               <span className="h-2 w-2 rounded-full bg-gold-400 animate-pulse" />
               {t("badge")}
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="mb-6 text-3xl font-black leading-tight text-white text-shadow-lg sm:text-4xl md:text-6xl lg:text-7xl"
-          >
+          <h1 className="mb-6 animate-fade-up text-3xl font-black leading-tight text-white text-shadow-lg sm:text-4xl md:text-6xl lg:text-7xl">
             {t("title")}
             <br />
-            <span className="gradient-text">{t("titleHighlight")}</span>
-          </motion.h1>
+            <span className={`gradient-text typewriter ${typeDone ? "typewriter-done" : ""}`}>
+              {t("titleHighlight")}
+            </span>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300/90 md:text-xl"
-          >
+          <p className="mx-auto mb-10 max-w-2xl animate-fade-up text-base leading-relaxed text-gray-300/90 sm:text-lg md:text-xl" style={{ animationDelay: "0.15s" }}>
             {t("subtitle")}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-          >
+          <div className="flex flex-col items-center justify-center gap-3 animate-fade-up sm:flex-row sm:gap-4" style={{ animationDelay: "0.3s" }}>
             <a
               href="#contact"
-              className="gold-gradient group flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold text-primary-700 shadow-lg shadow-gold-400/20 transition-all hover:scale-105 hover:shadow-xl hover:shadow-gold-400/30"
+              className="gold-gradient group flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold text-primary-700 shadow-lg shadow-gold-400/20 transition-transform hover:scale-105"
             >
               {t("cta")}
               <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </a>
             <a
-              href="#services"
+              href="/MGS-01.pdf"
+              download="MGS-Industrial-Profile.pdf"
               className="flex items-center gap-2 rounded-xl border border-white/20 px-8 py-4 text-base font-medium text-white backdrop-blur-sm transition-all hover:border-gold-400/50 hover:bg-white/5"
             >
-              {t("explore")}
+              <Download className="h-4 w-4" />
+              {locale === "ar" ? "ملف الشركة" : "Company Profile"}
             </a>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:mt-20 sm:gap-4 md:grid-cols-4"
-        >
+        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 animate-fade-up sm:mt-20 sm:gap-4 md:grid-cols-4" style={{ animationDelay: "0.45s" }}>
           {stats.map((stat, i) => (
             <div
               key={i}
@@ -140,22 +116,14 @@ export function Hero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute inset-x-0 bottom-8 flex justify-center"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
+      <div className="absolute inset-x-0 bottom-8 flex justify-center animate-fade-in" style={{ animationDelay: "1s" }}>
+        <div className="animate-bounce">
           <ArrowDown className="h-6 w-6 text-gold-400/60" />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

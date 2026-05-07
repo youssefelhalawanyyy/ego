@@ -8,19 +8,29 @@ import { Stats } from "@/components/sections/Stats";
 import { Sustainability } from "@/components/sections/Sustainability";
 import { Team } from "@/components/sections/Team";
 import { Contact } from "@/components/sections/Contact";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <SectionDivider />
       <About />
+      <SectionDivider flip />
       <Services />
+      <SectionDivider />
       <Machinery />
+      <SectionDivider flip />
       <Clients />
+      <SectionDivider />
       <WhyUs />
+      <SectionDivider flip light />
       <Stats />
+      <SectionDivider light />
       <Sustainability />
+      <SectionDivider flip />
       <Team />
+      <SectionDivider />
       <Contact />
     </>
   );

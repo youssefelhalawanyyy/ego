@@ -49,8 +49,8 @@ const config: Config = {
       animation: {
         "fade-up": "fadeUp 0.6s ease-out forwards",
         "fade-in": "fadeIn 0.6s ease-out forwards",
-        marquee: "marquee 30s linear infinite",
-        "marquee-reverse": "marqueeReverse 30s linear infinite",
+        marquee: "marquee 10s linear infinite",
+        "marquee-reverse": "marqueeReverse 10s linear infinite",
         float: "float 6s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite alternate",
         "counter-up": "counterUp 2s ease-out forwards",
