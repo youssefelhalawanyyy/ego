@@ -10,7 +10,6 @@ import {
   Zap,
   Users,
 } from "lucide-react";
-import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StaggerContainer, StaggerItem } from "@/components/ui/MotionWrapper";
 
@@ -29,13 +28,15 @@ export function WhyUs() {
 
   return (
     <section className="section-padding relative overflow-hidden">
-      <Image
-        src="/images/bck.jpg"
-        alt=""
-        fill
-        className="object-cover"
-        sizes="100vw"
-      />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/images/Untitled design.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-primary-700/85" />
       <div className="absolute inset-0">
         <div
