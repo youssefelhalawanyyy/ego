@@ -35,7 +35,7 @@ export function About() {
                 </span>
               </div>
               <p className="text-sm font-medium text-gray-500 sm:text-base">
-                {locale === "ar" ? "عامًا في خدمة مصر منذ ٢٠٠٤" : "Years serving Egypt since 2003"}
+                {locale === "ar" ? "عامًا في خدمة مصر منذ ٢٠٠٣" : "Years serving Egypt since 2003"}
               </p>
             </div>
           </div>
