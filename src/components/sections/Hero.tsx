@@ -24,7 +24,7 @@ export function Hero() {
   }, []);
 
   const stats = [
-    { value: 19, suffix: "+", label: t("stats.years") },
+    { value: 22, suffix: "+", label: t("stats.years") },
     { value: 500, suffix: "+", label: t("stats.projects") },
     { value: 150, suffix: "+", label: t("stats.clients") },
     { value: 85, suffix: "+", label: t("stats.team") },

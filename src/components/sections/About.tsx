@@ -6,12 +6,12 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MotionDiv, StaggerContainer, StaggerItem } from "@/components/ui/MotionWrapper";
 import { Counter } from "@/components/ui/Counter";
 
-const timelineYears = ["2004", "2008", "2012", "2016", "2020", "2024"] as const;
+const timelineYears = ["2003", "2008", "2012", "2016", "2020", "2025"] as const;
 
 export function About() {
   const t = useTranslations("about");
   const locale = useLocale();
-  const yearsOfService = new Date().getFullYear() - 2004;
+  const yearsOfService = new Date().getFullYear() - 2003;
 
   return (
     <section id="about" className="section-padding bg-white">
@@ -35,7 +35,7 @@ export function About() {
                 </span>
               </div>
               <p className="text-sm font-medium text-gray-500 sm:text-base">
-                {locale === "ar" ? "عامًا في خدمة مصر منذ ٢٠٠٤" : "Years serving Egypt since 2004"}
+                {locale === "ar" ? "عامًا في خدمة مصر منذ ٢٠٠٤" : "Years serving Egypt since 2003"}
               </p>
             </div>
           </div>

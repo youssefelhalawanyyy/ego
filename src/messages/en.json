@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "MGS Industrial | Integrated Industrial Services",
-    "description": "MGS Industrial - Leading provider of industrial services, metal fabrication, petroleum pipes, and industrial maintenance in Egypt since 2004"
+    "description": "MGS Industrial - Leading provider of industrial services, metal fabrication, petroleum pipes, and industrial maintenance in Egypt since 2003"
   },
   "nav": {
     "home": "Home",
@@ -13,7 +13,7 @@
     "getQuote": "Get a Quote"
   },
   "hero": {
-    "badge": "Since 2004 · Industrial Excellence",
+    "badge": "Since 2003 · Industrial Excellence",
     "title": "Industrial Solutions",
     "titleHighlight": "World-Class Standards",
     "subtitle": "MGS Industrial - Your trusted partner in integrated industrial services, metal fabrication, petroleum pipes, and industrial maintenance with the highest quality and safety standards",
@@ -30,7 +30,7 @@
     "badge": "About Us",
     "title": "MGS Industrial",
     "titleHighlight": "Integrated Industrial Services",
-    "description": "Founded in 2004, MGS Industrial is a leading Egyptian company in industrial services. We provide integrated solutions in metal fabrication, industrial equipment maintenance, petroleum pipes, and infrastructure services for major factories and industrial facilities.",
+    "description": "Founded in 2003, MGS Industrial is a leading Egyptian company in industrial services. We provide integrated solutions in metal fabrication, industrial equipment maintenance, petroleum pipes, and infrastructure services for major factories and industrial facilities.",
     "mission": {
       "title": "Our Mission",
       "text": "Delivering distinguished industrial services that meet the highest quality and safety standards, while committed to continuous innovation and developing national competencies."
@@ -41,12 +41,12 @@
     },
     "timeline": {
       "title": "Journey of Success",
-      "2004": "Company founded and operations commenced",
+      "2003": "Company founded and industrial operations commenced",
       "2008": "Expanded into metal fabrication and petroleum pipes",
       "2012": "Strategic partnerships with major global companies",
       "2016": "Launched integrated industrial maintenance services",
       "2020": "Digital transformation and technical capabilities upgrade",
-      "2024": "Market leadership in Egyptian industrial services"
+      "2025": "Market leadership in Egyptian industrial services & cable machinery manufacturing"
     }
   },
   "services": {
@@ -95,6 +95,22 @@
       "infrastructure": {
         "title": "Infrastructure Solutions",
         "description": "Design and execution of industrial infrastructure projects including electrical, mechanical, and plumbing systems"
+      },
+      "manufacturing": {
+        "title": "General Manufacturing",
+        "description": "Comprehensive industrial manufacturing solutions including custom parts, assemblies, and specialized production for diverse industrial sectors"
+      },
+      "wiringHarness": {
+        "title": "Wiring Harness Machines",
+        "description": "Supply and setup of car wiring harness factory machines and equipment for automotive industry production lines"
+      },
+      "insulationBraiding": {
+        "title": "Insulation & Braiding Machines",
+        "description": "Specialized insulation and braiding machines for cable and wire manufacturing with precision control systems"
+      },
+      "cableMachinery": {
+        "title": "Cable Machinery Manufacturing",
+        "description": "Design and manufacturing of cable production machinery — our flagship specialty delivering world-class cable manufacturing solutions"
       }
     }
   },
@@ -214,7 +230,7 @@
     }
   },
   "footer": {
-    "description": "MGS Industrial - Your trusted partner in integrated industrial services since 2004. We deliver comprehensive industrial solutions with the highest quality and safety standards.",
+    "description": "MGS Industrial - Your trusted partner in integrated industrial services since 2003. We deliver comprehensive industrial solutions with the highest quality and safety standards.",
     "quickLinks": "Quick Links",
     "services": "Our Services",
     "contactUs": "Contact Us",
